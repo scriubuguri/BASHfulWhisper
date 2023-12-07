@@ -5,7 +5,7 @@ The `meteo_data.sh` script is a command-line tool that allows you to retrieve we
 ## Features
 
 - Retrieve weather data for a specific city
-- Units of measurement can be specified (metric, imperial)
+- Units of measurement can be specified (metric, imperial, standard)
 - Get current temperature, wind speed, humidity, and cloudiness
 
 ## Requirements
@@ -25,6 +25,11 @@ The `meteo_data.sh` script is a command-line tool that allows you to retrieve we
 
 ## Usage
 
+Make the `meteo_data.sh` script executable with the following command:
+```
+chmod +x meteo_data.sh
+```
+
 The `meteo_data.sh` script can be run from the command line with various options.
 
 ```
@@ -32,7 +37,7 @@ The `meteo_data.sh` script can be run from the command line with various options
 ```
 
 - `-c city`: Specify the city for which you want to fetch weather data. Defaults to "Bucharest".
-- `-u units`: Specify the units of measurement for the weather information. Options: "metric" (default) or "imperial".
+- `-u units`: Specify the units of measurement for the weather information. Options: "metric" (default), "imperial" or "standard".
 - `-p param`: Specify the parameter to retrieve. Options: "t" (current temperature, default), "w" (wind speed), "h" (humidity), "c" (cloudiness).
 
 ### Examples
