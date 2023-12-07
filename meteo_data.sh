@@ -57,14 +57,31 @@ getClouds() {
     fi
 }
 
-city="Bucharest"
-units="metric"
-param="t"
+main() {
+    city="Bucharest"
+    units="metric"
+    param="t"
 
-getWeather
-getTemp
-getWind
-getHumidity
-getClouds
+    while getopts "c:u:p:" opt; do
+        case "$opt" in
+            c) city=$OPTARG ;;
+            u) units=$OPTARG ;;
+            p) param=$OPTARG ;;
+            *) echo "Invalid option" >&2; exit 1 ;;
+        esac
+    done
+
+    getWeather "$city" "$units" "$param"
+
+    case "$param" in
+        t) getTemp ;;
+        w) getWind ;;
+        h) getHumidity ;;
+        c) getClouds ;;
+        *) echo "Invalid parameter! Try again." ;;
+    esac
+}
+
+main "$@"
 
 
